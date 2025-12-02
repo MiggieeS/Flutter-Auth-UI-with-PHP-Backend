@@ -1,16 +1,22 @@
-# auth_ui
+# Auth_UI
 
-A new Flutter project.
+This project is a Flutter-based authentication UI that connects to a PHP + MySQL backend.  
 
-## Getting Started
+## Project Structure
+- `lib/` - Flutter frontend code
+- `flutter_api/` - PHP backend code (to be placed in XAMPP's `htdocs`)
 
-This project is a starting point for a Flutter application.
+## Prerequisites
+- Flutter SDK (latest stable version)
+- Dart (comes with Flutter)
+- XAMPP (Apache + MySQL)
+- Git
 
-A few resources to get you started if this is your first Flutter project:
+#### Backend (PHP + MySQL)
+```markdown
+### Backend Setup
+1. Copy the `flutter_api/` folder into your XAMPP `htdocs` directory.
+   Example: `C:/xampp/htdocs/flutter_api/`
+2. Start Apache and MySQL from the XAMPP Control Panel.
+3. Run the program using your chosen IDE and perform testing
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
