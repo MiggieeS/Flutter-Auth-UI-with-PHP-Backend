@@ -26,12 +26,12 @@ class FrostedCard extends StatelessWidget {
     final cardWidth = screenWidth > 700 ? 600.0 : screenWidth * 0.8;
 
     final cardPadding =
-        padding ?? EdgeInsets.all(screenWidth < 400 ? 14.0 : 26.0);
+        padding ?? EdgeInsets.all(screenWidth < 400 ? 16.0 : 32.0);
 
     return Container(
       width: cardWidth,
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.7),
+        color: Colors.white.withValues(alpha: 0.8),
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
@@ -161,7 +161,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 24),
                 Center(
                   child: Row(
                     mainAxisSize: MainAxisSize.min,

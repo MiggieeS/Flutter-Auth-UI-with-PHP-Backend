@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'main.dart';
 import 'dart:convert';
 
 class RegisterPage extends StatefulWidget {
@@ -109,10 +110,6 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Create an account'),
-        backgroundColor: Colors.teal,
-      ),
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
@@ -121,53 +118,82 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
         ),
         child: Center(
-          child: Container(
-            color: Colors.white.withValues(alpha: 0.7),
-            child: Padding(
-              padding: const EdgeInsets.all(32.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  TextField(
-                    controller: _nameController,
-                    decoration: const InputDecoration(
-                      labelText: 'Username',
-                      prefixIcon: Icon(
-                        Icons.account_circle,
-                        color: Colors.teal,
+          child: FrostedCard(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                TextField(
+                  controller: _nameController,
+                  decoration: const InputDecoration(
+                    labelText: 'Username',
+                    prefixIcon: Icon(Icons.account_circle, color: Colors.teal),
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                TextField(
+                  controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: const InputDecoration(
+                    labelText: 'Email',
+                    prefixIcon: Icon(Icons.email_outlined, color: Colors.teal),
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                TextField(
+                  controller: _passwordController,
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                    labelText: 'Password',
+                    prefixIcon: Icon(Icons.lock_outline, color: Colors.teal),
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                const SizedBox(height: 28),
+                _buildActionButtons(),
+                SizedBox(height: 24),
+                Center(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        "Already have an account?",
+                        style: TextStyle(
+                          fontSize: adaptiveFontSize(context, 14),
+                          color: Colors.grey[700],
+                        ),
                       ),
-                      border: OutlineInputBorder(),
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  TextField(
-                    controller: _emailController,
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: const InputDecoration(
-                      labelText: 'Email',
-                      prefixIcon: Icon(
-                        Icons.email_outlined,
-                        color: Colors.teal,
+                      SizedBox(width: 6),
+                      TextButton(
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.symmetric(horizontal: 4.0),
+                          minimumSize: Size(0, 0),
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute<void>(
+                              builder: (context) => const LoginPage(),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          'Sign In',
+                          style: TextStyle(
+                            fontSize: adaptiveFontSize(context, 14),
+                            color: Colors.teal.shade700,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
-                      border: OutlineInputBorder(),
-                    ),
+                    ],
                   ),
-                  const SizedBox(height: 16),
-                  TextField(
-                    controller: _passwordController,
-                    obscureText: true,
-                    decoration: const InputDecoration(
-                      labelText: 'Password',
-                      prefixIcon: Icon(Icons.lock_outline, color: Colors.teal),
-                      border: OutlineInputBorder(),
-                    ),
-                  ),
-                  const SizedBox(height: 28),
-                  _buildActionButtons(),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
