@@ -15,6 +15,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   bool _loading = false;
+  bool _pressed = false;
   final String _registerUrl = 'http://127.0.0.1/flutter_api/insert_users.php';
 
   @override
@@ -38,6 +39,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
     setState(() {
       _loading = true;
+      _pressed = true;
     });
 
     try {
@@ -68,7 +70,12 @@ class _RegisterPageState extends State<RegisterPage> {
         context,
       ).showSnackBar(SnackBar(content: Text('Network error: $e')));
     } finally {
-      if (mounted) setState(() => _loading = false);
+      if (mounted) {
+        setState(() {
+          _loading = false;
+          _pressed = true;
+        });
+      }
     }
   }
 
@@ -78,29 +85,21 @@ class _RegisterPageState extends State<RegisterPage> {
       children: [
         SizedBox(
           width: double.infinity,
+          height: 50,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.teal.shade600,
               padding: const EdgeInsets.all(16.0),
             ),
-            onPressed: _loading ? null : _register,
-            child: _loading
-                ? const SizedBox(
-                    width: double.infinity,
-                    height: 67,
-                    child: CircularProgressIndicator(
-                      color: Colors.white,
-                      strokeWidth: 2,
-                    ),
-                  )
-                : Text(
-                    'Register',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: adaptiveFontSize(context, 15),
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+            onPressed: (_loading || _pressed) ? null : _register,
+            child: Text(
+              'Register',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: adaptiveFontSize(context, 15),
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
         ),
       ],
@@ -154,7 +153,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 const SizedBox(height: 28),
                 _buildActionButtons(),
-                SizedBox(height: 24),
+                const SizedBox(height: 24),
                 Center(
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
@@ -166,11 +165,11 @@ class _RegisterPageState extends State<RegisterPage> {
                           color: Colors.grey[700],
                         ),
                       ),
-                      SizedBox(width: 6),
+                      const SizedBox(width: 6),
                       TextButton(
                         style: TextButton.styleFrom(
-                          padding: EdgeInsets.symmetric(horizontal: 4.0),
-                          minimumSize: Size(0, 0),
+                          padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                          minimumSize: const Size(0, 0),
                           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         ),
                         onPressed: () {

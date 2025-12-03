@@ -103,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                   'Welcome back! \n Let\'s get you signed in',
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
-                    fontSize: adaptiveFontSize(context, 26),
+                    fontSize: adaptiveFontSize(context, 30),
                     color: Colors.teal.shade900,
                     letterSpacing: 0.2,
                   ),
