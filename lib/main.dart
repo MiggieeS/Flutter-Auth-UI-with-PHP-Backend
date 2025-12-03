@@ -1,6 +1,40 @@
 import 'package:flutter/material.dart';
 import 'register.dart';
 
+class FrostedCard extends StatelessWidget {
+  final Widget child;
+  final EdgeInsetsGeometry? padding;
+
+  const FrostedCard({super.key, required this.child, this.padding});
+
+  @override
+  Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
+    final cardWidth = screenWidth > 700 ? 600.0 : screenWidth * 0.9;
+
+    final cardPadding =
+        padding ?? EdgeInsets.all(screenWidth < 400 ? 16.0 : 32.0);
+
+    return Container(
+      width: cardWidth,
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.7),
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.2),
+            blurRadius: 8,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      padding: cardPadding,
+      child: child,
+    );
+  }
+}
+
 void main() {
   runApp(MyApp());
 }
@@ -48,19 +82,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
         child: Center(
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.7),
-              borderRadius: BorderRadius.circular(16),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.2),
-                  blurRadius: 8,
-                  offset: Offset(0, 2),
-                ),
-              ],
-            ),
-            padding: const EdgeInsets.all(32.0),
+          child: FrostedCard(
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
