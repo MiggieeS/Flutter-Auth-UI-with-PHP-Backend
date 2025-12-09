@@ -1,7 +1,7 @@
 <?php
 include 'db_config.php'; // Include database configuration
 
-$sql = "SELECT * FROM users"; //
+$sql = "SELECT * FROM users";
 $result = $conn -> query($sql); 
 
 $users = [] ; 
