@@ -88,6 +88,7 @@ class _LoginPageState extends State<LoginPage> {
             fit: BoxFit.cover,
           ),
         ),
+
         child: Center(
           child: FrostedCard(
             child: Column(
@@ -101,6 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                     color: Colors.teal.shade900,
                   ),
                 ),
+
                 const SizedBox(height: 6),
                 Text(
                   'Let\'s get you signed in',
@@ -109,6 +111,7 @@ class _LoginPageState extends State<LoginPage> {
                     color: Colors.teal.shade800,
                   ),
                 ),
+
                 const SizedBox(height: 26),
                 TextField(
                   controller: _emailController,
@@ -118,6 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                     border: OutlineInputBorder(),
                   ),
                 ),
+
                 const SizedBox(height: 16),
                 TextField(
                   controller: _passwordController,
@@ -128,6 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                     border: OutlineInputBorder(),
                   ),
                 ),
+
                 const SizedBox(height: 26),
                 SizedBox(
                   width: double.infinity,
@@ -156,6 +161,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                   ),
                 ),
+
                 const SizedBox(height: 24),
                 Row(
                   mainAxisSize: MainAxisSize.min,

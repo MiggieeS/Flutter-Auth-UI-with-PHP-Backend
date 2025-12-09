@@ -118,6 +118,7 @@ class _RegisterPageState extends State<RegisterPage> {
             fit: BoxFit.cover,
           ),
         ),
+
         child: Center(
           child: FrostedCard(
             child: Column(
@@ -135,6 +136,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   textAlign: TextAlign.center,
                 ),
+
                 SizedBox(height: 6),
                 Text(
                   'Please fill in your details below to get started',
@@ -144,6 +146,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     color: Colors.teal.shade800,
                   ),
                 ),
+
                 const SizedBox(height: 24),
                 TextField(
                   controller: _nameController,
@@ -153,6 +156,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     border: OutlineInputBorder(),
                   ),
                 ),
+
                 const SizedBox(height: 16),
                 TextField(
                   controller: _emailController,
@@ -163,6 +167,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     border: OutlineInputBorder(),
                   ),
                 ),
+
                 const SizedBox(height: 16),
                 TextField(
                   controller: _passwordController,
@@ -173,6 +178,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     border: OutlineInputBorder(),
                   ),
                 ),
+
                 const SizedBox(height: 28),
                 _buildActionButtons(),
                 const SizedBox(height: 24),
@@ -202,6 +208,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                           );
                         },
+
                         child: Text(
                           'Sign In',
                           style: TextStyle(

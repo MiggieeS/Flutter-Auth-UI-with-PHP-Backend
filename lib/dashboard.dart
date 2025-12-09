@@ -17,6 +17,7 @@ class DashboardPage extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
+
         child: Center(
           child: FrostedCard(
             child: Column(
@@ -33,6 +34,7 @@ class DashboardPage extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
+
                 const SizedBox(height: 12),
                 Text(
                   'You are now logged in.',
@@ -43,6 +45,7 @@ class DashboardPage extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
+
                 const SizedBox(height: 28),
                 SizedBox(
                   width: double.infinity,
