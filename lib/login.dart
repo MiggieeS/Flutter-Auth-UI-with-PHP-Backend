@@ -145,20 +145,14 @@ class _LoginPageState extends State<LoginPage> {
                         borderRadius: BorderRadius.circular(100),
                       ),
                     ),
-                    child: _loading
-                        ? const CircularProgressIndicator(
-                            valueColor: AlwaysStoppedAnimation<Color>(
-                              Colors.white,
-                            ),
-                          )
-                        : Text(
-                            'Login',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: adaptiveFontSize(context, 16),
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                    child: Text(
+                      'Login',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: adaptiveFontSize(context, 16),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
 
