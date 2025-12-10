@@ -83,9 +83,11 @@ class _DashboardPageState extends State<DashboardPage> {
                         child: GridView.builder(
                           shrinkWrap: true,
                           gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                childAspectRatio: 3,
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: adaptiveGridColumnCount(
+                                  context,
+                                ),
+                                childAspectRatio: 1.6,
                                 crossAxisSpacing: 12,
                                 mainAxisSpacing: 12,
                               ),
@@ -94,42 +96,53 @@ class _DashboardPageState extends State<DashboardPage> {
                             final user = _users[index];
                             final displayId = index + 1;
 
-                            return Container(
-                              decoration: BoxDecoration(
-                                color: Colors.teal.shade50,
-                                borderRadius: BorderRadius.circular(12),
-                                border: Border.all(color: Colors.teal.shade200),
-                              ),
-                              padding: const EdgeInsets.all(12),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'ID: $displayId',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: adaptiveFontSize(context, 14),
-                                      color: Colors.teal.shade900,
-                                    ),
+                            return SizedBox(
+                              height: 120,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.teal.shade50,
+                                  borderRadius: BorderRadius.circular(12),
+                                  border: Border.all(
+                                    color: Colors.teal.shade200,
                                   ),
-                                  const SizedBox(height: 4),
-                                  Text(
-                                    user['name'] ?? '',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: adaptiveFontSize(context, 16),
-                                      color: Colors.teal.shade800,
+                                ),
+                                padding: const EdgeInsets.all(12),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'ID: $displayId',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: adaptiveFontSize(context, 14),
+                                        color: Colors.teal.shade900,
+                                      ),
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 1,
                                     ),
-                                  ),
-                                  const SizedBox(height: 4),
-                                  Text(
-                                    user['email'] ?? '',
-                                    style: TextStyle(
-                                      fontSize: adaptiveFontSize(context, 14),
-                                      color: Colors.grey[700],
+                                    const SizedBox(height: 8),
+                                    Text(
+                                      user['name'] ?? '',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: adaptiveFontSize(context, 14),
+                                        color: Colors.teal.shade800,
+                                      ),
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 1,
                                     ),
-                                  ),
-                                ],
+                                    const SizedBox(height: 8),
+                                    Text(
+                                      user['email'] ?? '',
+                                      style: TextStyle(
+                                        fontSize: adaptiveFontSize(context, 11),
+                                        color: Colors.grey[700],
+                                      ),
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 1,
+                                    ),
+                                  ],
+                                ),
                               ),
                             );
                           },

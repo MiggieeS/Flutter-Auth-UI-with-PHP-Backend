@@ -12,6 +12,18 @@ double adaptiveFontSize(BuildContext context, double baseSize) {
   }
 }
 
+int adaptiveGridColumnCount(BuildContext context) {
+  final screenWidth = MediaQuery.of(context).size.width;
+
+  if (screenWidth < 400) {
+    return 1;
+  } else if (screenWidth > 700) {
+    return 3;
+  } else {
+    return 2;
+  }
+}
+
 class FrostedCard extends StatelessWidget {
   final Widget child;
   final EdgeInsetsGeometry? padding;
