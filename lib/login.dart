@@ -18,7 +18,8 @@ class _LoginPageState extends State<LoginPage> {
   final _passwordController = TextEditingController();
   bool _loading = false;
 
-  final String _loginUrl = 'http://127.0.0.1/flutter_api/login.php';
+  final String _loginUrl =
+      'http://192.168.1.160/flutter_api/login.php'; // Update with your API endpoint and IP Address
 
   @override
   void dispose() {

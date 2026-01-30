@@ -18,7 +18,8 @@ class _RegisterPageState extends State<RegisterPage> {
   final _passwordController = TextEditingController();
   bool _loading = false;
   bool _pressed = false;
-  final String _registerUrl = 'http://127.0.0.1/flutter_api/insert_users.php';
+  final String _registerUrl =
+      'http://192.168.1.160/flutter_api/insert_users.php'; // Update with your API endpoint and IP Address
 
   @override
   void dispose() {
