@@ -3,7 +3,7 @@
 This project is a Flutter-based authentication UI that connects to a PHP + MySQL backend.  
 
 ## Project Structure
-- `lib/` - Flutter frontend code
+- `lib` - Flutter frontend code
 - `flutter_api/` - PHP backend code (to be placed in XAMPP's `htdocs`)
 
 ## Prerequisites
